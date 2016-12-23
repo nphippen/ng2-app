@@ -11,8 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var sidebar_routes_config_1 = require('../.././sidebar/sidebar-routes.config');
 var sidebar_metadata_1 = require('../.././sidebar/sidebar.metadata');
+var auth_service_1 = require('../.././auth.service');
 var NavbarComponent = (function () {
-    function NavbarComponent() {
+    function NavbarComponent(auth) {
+        this.auth = auth;
     }
     NavbarComponent.prototype.ngOnInit = function () {
         this.listTitles = sidebar_routes_config_1.ROUTES.filter(function (listTitle) { return listTitle.menuType !== sidebar_metadata_1.MenuType.BRAND; });
@@ -31,9 +33,10 @@ var NavbarComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'navbar-cmp',
+            providers: [auth_service_1.Auth],
             templateUrl: 'navbar.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [auth_service_1.Auth])
     ], NavbarComponent);
     return NavbarComponent;
 }());

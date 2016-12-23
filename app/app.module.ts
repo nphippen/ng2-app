@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 import { AppComponent }   from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -19,6 +20,9 @@ import { NavbarModule} from './shared/navbar/navbar.module';
         NavbarModule,
         FooterModule,
         RouterModule.forRoot([])
+    ],
+    providers: [
+        AUTH_PROVIDERS
     ],
     declarations: [ AppComponent, DashboardComponent ],
     bootstrap:    [ AppComponent ]

@@ -1,8 +1,10 @@
 import { Component,state,style,animate,transition, trigger, keyframes } from '@angular/core';
+import { Auth } from '../.././auth.service';
 
 @Component({
     moduleId: module.id,
     selector: 'user-cmp',
+    providers: [ Auth ],
     templateUrl: 'user.component.html',
     animations: [
         trigger('carduserprofile', [
@@ -47,4 +49,10 @@ import { Component,state,style,animate,transition, trigger, keyframes } from '@a
         ]
     })
 
-    export class UserComponent{ }
+    export class UserComponent{
+        
+        constructor(private auth: Auth) {
+            console.log(auth)
+        }
+        
+    }

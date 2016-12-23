@@ -9,13 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var auth_service_1 = require('../.././auth.service');
 var UserComponent = (function () {
-    function UserComponent() {
+    function UserComponent(auth) {
+        this.auth = auth;
+        console.log(auth);
     }
     UserComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'user-cmp',
+            providers: [auth_service_1.Auth],
             templateUrl: 'user.component.html',
             animations: [
                 core_1.trigger('carduserprofile', [
@@ -59,7 +63,7 @@ var UserComponent = (function () {
                 ])
             ]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [auth_service_1.Auth])
     ], UserComponent);
     return UserComponent;
 }());
