@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { Auth } from './auth.service';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Component({
     selector: 'my-app',
@@ -17,8 +18,12 @@ export class AppComponent implements OnInit{
     }
     
     
-    constructor(private auth: Auth) {}
     
+    constructor(private auth: Auth ) {
+       
+    }
+    
+   
     
     public isMaps(path){
         if(path == window.location.pathname){

@@ -25,16 +25,38 @@
       // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
-      "angular2-jwt": "node_modules/angular2-jwt/angular2-jwt.js"
+      "angular2-jwt": "node_modules/angular2-jwt/angular2-jwt.js",
+      'firebase' : 'npm:firebase',
+      'angularfire2' : 'npm:angularfire2',
+      'traceur':'npm:traceur/bin',
+      'ng2-bootstrap':'npm:ng2-bootstrap',
+      'moment':'npm:moment/moment.js'
+
     },
     // packages tells the System loader how to load when no filename and/or no extension
-    packages: {
+    packages: {  
       app: {
         main: './main.js',
         defaultExtension: 'js'
       },
       rxjs: {
         defaultExtension: 'js'
+      },
+      angularfire2: {
+        main: 'index.js',
+        format: 'esm',
+        defaultExtension: 'js'
+      },
+      firebase: {
+        main: 'firebase.js',
+        defaultExtension: 'js'
+      },
+      'ng2-bootstrap': {
+        main: 'ng2-bootstrap.js',
+        defaultExtension: 'js'
+      },
+      traceur:{
+        main: 'traceur'
       }
     }
   });
