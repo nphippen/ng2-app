@@ -2,7 +2,7 @@
  * System configuration for Angular samples
  * Adjust as necessary for your application needs.
  */
-(function (global) {
+(function(global) {
   System.config({
     paths: {
       // paths serve as alias
@@ -23,18 +23,18 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
       // other libraries
-      'rxjs':                      'npm:rxjs',
+      'rxjs': 'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js',
       "angular2-jwt": "node_modules/angular2-jwt/angular2-jwt.js",
-      'firebase' : 'npm:firebase',
-      'angularfire2' : 'npm:angularfire2',
-      'traceur':'npm:traceur/bin',
-      'ng2-bootstrap':'npm:ng2-bootstrap',
-      'moment':'npm:moment/moment.js'
-
+      'firebase': 'npm:firebase',
+      'angularfire2': 'npm:angularfire2',
+      'traceur': 'npm:traceur/bin',
+      'ng2-bootstrap': 'npm:ng2-bootstrap',
+      'moment': 'npm:moment/moment.js',
+      'ng2-bs3-modal': 'npm:ng2-bs3-modal'
     },
     // packages tells the System loader how to load when no filename and/or no extension
-    packages: {  
+    packages: {
       app: {
         main: './main.js',
         defaultExtension: 'js'
@@ -51,11 +51,15 @@
         main: 'firebase.js',
         defaultExtension: 'js'
       },
+      'ng2-bs3-modal': {
+        main: 'ng2-bs3-modal.js',
+        defaultExtension: 'js'
+      },
       'ng2-bootstrap': {
         main: 'ng2-bootstrap.js',
         defaultExtension: 'js'
       },
-      traceur:{
+      traceur: {
         main: 'traceur'
       }
     }

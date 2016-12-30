@@ -6,8 +6,8 @@ demo = {
     	color = Math.floor((Math.random() * 4) + 1);
 
     	$.notify({
-        	icon: "pe-7s-gift",
-        	message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
+        	icon: "pe-7s-star",
+        	message: "WARNING: You are WAY TOO AWESOME."
 
         },{
             type: type[color],

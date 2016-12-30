@@ -1,18 +1,14 @@
-<div class="wrapper">
-    <div class="sidebar" data-color="blue" data-image="">
+<button class="btn btn-primary btn-margin" (click)="login('google')" *ngIf="isAuth == false">Log In</button>
+        
+<div class="wrapper" *ngIf="isAuth == true">
+    <div class="sidebar" data-color="red" data-image="">
         <sidebar-cmp></sidebar-cmp>
         <div class="sidebar-background" style="background-image: url(/assets/img/sidebar-2.jpg)"></div>
     </div>
 
     <div class="main-panel">
+        
         <navbar-cmp></navbar-cmp>
-        <!--<h4>{{ item | async | json }}</h4>-->
-        <!--<input type="text" #newname placeholder="Name" />-->
-        <!--<input type="text" #newsize placeholder="Size" />-->
-        <!--<br />-->
-        <!--<button (click)="save(newname.value)">Set Name</button>-->
-        <!--<button (click)="update(newsize.value)">Update Size</button>-->
-        <!--<button (click)="delete()">Delete</button>-->
         <dashboard-cmp></dashboard-cmp>
 
         <div *ngIf!="isMaps('/maps')">

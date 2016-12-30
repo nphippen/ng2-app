@@ -63,14 +63,14 @@
                     <!--        <li><a href="#">Separated link</a></li>-->
                     <!--    </ul>-->
                     <!--</li>-->
-                    <li *ngIf="auth.authenticated() && auth.userProfile">
+                    <li>
                         <a href="#">
-                            <p>{{auth.userProfile.name}}</p>
+                            <p></p>
                         </a>
                     </li>
                     <li>
-                        <button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
-                        <button class="btn btn-primary btn-margin" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
+                        <button class="btn btn-primary btn-margin" (click)="login()" *ngIf="isAuth">Log In</button>
+                        <button class="btn btn-primary btn-margin" (click)="logout()" *ngIf="!isAuth">Log Out</button>
                     </li>
                     <li class="separator hidden-lg hidden-md"></li>
                 </ul>

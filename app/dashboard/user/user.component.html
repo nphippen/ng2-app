@@ -1,15 +1,13 @@
 <div class="main-content">
     <div class="container-fluid">
-        <h4 *ngIf="!auth.authenticated()">You are not logged in, please click 'Log in' button to login</h4>
-        <div class="row" *ngIf="auth.authenticated() && auth.userProfile">
-
+        <div class="row">
             <div class="col-md-8">
                 <div class="card" [@carduserprofile]>
                     <div class="header">
                         <h4 class="title">Edit Profile</h4>
                     </div>
                     <div class="content">
-                        
+
                         <form>
                             <div class="row">
                                 <div class="col-md-5">
@@ -21,13 +19,13 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Username</label>
-                                        <input type="text" class="form-control" placeholder="Username" value={{auth.userProfile.nickname}}>
+                                        <input type="text" class="form-control" placeholder="Username" value="">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" class="form-control" placeholder="Email" value={{auth.userProfile.email}}>
+                                        <input type="email" class="form-control" placeholder="Email" value="">
                                     </div>
                                 </div>
                             </div>
@@ -36,13 +34,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>First Name</label>
-                                        <input type="text" class="form-control" placeholder="First Name" value={{auth.userProfile.given_name}}>
+                                        <input type="text" class="form-control" placeholder="First Name" value="">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Last Name" value={{auth.userProfile.family_name}}>
+                                        <input type="text" class="form-control" placeholder="Last Name" value="">
                                     </div>
                                 </div>
                             </div>
@@ -93,16 +91,16 @@
             </div>
             <div class="col-md-4">
                 <div class="card card-user" [@cardprofile]>
-                    <div class="bg-primary">
-                        <img src="/assets/img/background_a.jpg" height="250px" alt="..." />
+                    <div class="panel panel-primary">
+                        <!--<img src="/assets/img/background_a.jpg" height="50px" alt="..." />-->
                     </div>
                     <div class="content">
                         <div class="author">
                             <a href="#">
-                                <img class="avatar border-gray" src={{auth.userProfile.picture}} alt="..." />
+                                <img class="avatar border-gray" src="{{ user.avatar }}" alt="..." />
 
-                                <h4 class="title">{{auth.userProfile.name}}<br />
-                                    <small>{{auth.userProfile.nickname}}</small>
+                                <h4 class="title">{{ user.name }}<br />
+                                    <small>{{ user.email }}</small>
                                 </h4>
                             </a>
                         </div>

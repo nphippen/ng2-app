@@ -16,7 +16,9 @@
                                     <div class="view">
                                         <input class="toggle" type="checkbox" (click)="toggleTodoComplete(item)" [checked]="item.complete">
                                         <label>{{item.title}}</label>
-                                        <button class="destroy" (click)="removeTodo(item)"></button>
+                                        <button class="btn btn-danger btn-simple btn-xs" (click)="removeTodo" rel="tooltip" title="Remove" type="button">
+                                                <i class="fa fa-times"></i>
+                                            </button>
                                     </div>
                                 </li>
                             </ul>
