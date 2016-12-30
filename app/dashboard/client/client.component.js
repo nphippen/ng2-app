@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var forms_1 = require('@angular/forms');
 var platform_browser_1 = require('@angular/platform-browser');
-var ng2_bootstrap_1 = require("ng2-bootstrap");
+var ng2_bs3_modal_1 = require('ng2-bs3-modal/ng2-bs3-modal');
 var client_1 = require('./client');
 var client_data_service_1 = require('./client-data.service');
 var ClientComponent = (function () {
@@ -20,6 +20,13 @@ var ClientComponent = (function () {
         this.newClient = new client_1.Client();
         this.clients = clientDataService.clients;
     }
+    ClientComponent.prototype.closeClient = function () {
+        this.addClient();
+        this.modal.close();
+    };
+    ClientComponent.prototype.open = function () {
+        this.modal.open();
+    };
     ClientComponent.prototype.addClient = function () {
         this.clientDataService.addClient(this.newClient);
         this.newClient = new client_1.Client();
@@ -30,8 +37,14 @@ var ClientComponent = (function () {
     ClientComponent.prototype.removeClient = function (key) {
         this.clientDataService.deleteClient(key);
     };
+    ClientComponent.prototype.onSubmit = function () {
+    };
     ClientComponent.prototype.ngOnInit = function () {
     };
+    __decorate([
+        core_1.ViewChild('clientModal'), 
+        __metadata('design:type', ng2_bs3_modal_1.ModalComponent)
+    ], ClientComponent.prototype, "modal", void 0);
     ClientComponent = __decorate([
         core_1.NgModule({
             imports: [
@@ -43,9 +56,12 @@ var ClientComponent = (function () {
             moduleId: module.id,
             selector: 'client-cmp',
             templateUrl: 'client.component.html',
-            styleUrls: [],
+            styles: [
+                ".ng-valid[required] {\n            border-left: 5px solid #5cb85c; /* green */\n        }",
+                ".ng-invalid {\n            border-left: 5px solid #d9534f; /* red */\n        }",
+                ".red-text {\n            color: #d9534f !important; /* red */\n        }"
+            ],
             providers: [client_data_service_1.ClientDataService],
-            directives: [ng2_bootstrap_1.ModalDirective],
             animations: [
                 core_1.trigger('cardtable1', [
                     core_1.state('*', core_1.style({

@@ -11,9 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
-var angular2_jwt_1 = require('angular2-jwt');
 var angularfire2_1 = require('angularfire2');
-var ng2_bootstrap_1 = require('ng2-bootstrap');
 var app_component_1 = require('./app.component');
 var dashboard_component_1 = require('./dashboard/dashboard.component');
 var dashboard_module_1 = require('./dashboard/dashboard.module');
@@ -38,13 +36,17 @@ var AppModule = (function () {
                 sidebar_module_1.SidebarModule,
                 navbar_module_1.NavbarModule,
                 footer_module_1.FooterModule,
-                ng2_bootstrap_1.ModalModule,
                 router_1.RouterModule.forRoot([]),
-                angularfire2_1.AngularFireModule.initializeApp(exports.firebaseConfig)
+                angularfire2_1.AngularFireModule.initializeApp({
+                    apiKey: "AIzaSyCAZMkJsN_mhq3QlIcGzdHEjJpwHqFtPp8",
+                    authDomain: "viking-market.firebaseapp.com",
+                    databaseURL: "https://viking-market.firebaseio.com",
+                    storageBucket: "viking-market.appspot.com",
+                }, {
+                    method: angularfire2_1.AuthMethods.Popup
+                })
             ],
-            providers: [
-                angular2_jwt_1.AUTH_PROVIDERS
-            ],
+            providers: [],
             declarations: [app_component_1.AppComponent, dashboard_component_1.DashboardComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 

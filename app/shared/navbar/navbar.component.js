@@ -11,13 +11,65 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var sidebar_routes_config_1 = require('../.././sidebar/sidebar-routes.config');
 var sidebar_metadata_1 = require('../.././sidebar/sidebar.metadata');
-var auth_service_1 = require('../.././auth.service');
+var angularfire2_1 = require('angularfire2');
 var NavbarComponent = (function () {
-    function NavbarComponent(auth) {
-        this.auth = auth;
+    function NavbarComponent(af) {
+        var _this = this;
+        this.af = af;
+        this.isAuth = false;
+        this.authColor = 'warn';
+        this.user = {};
+        this.af.auth.subscribe(function (user) { return _this._changeState(user); }, function (error) { return console.trace(error); });
     }
     NavbarComponent.prototype.ngOnInit = function () {
         this.listTitles = sidebar_routes_config_1.ROUTES.filter(function (listTitle) { return listTitle.menuType !== sidebar_metadata_1.MenuType.BRAND; });
+    };
+    NavbarComponent.prototype.login = function (from) {
+        this.af.auth.login({
+            provider: this._getProvider(from)
+        });
+    };
+    NavbarComponent.prototype.logout = function () {
+        this.af.auth.logout();
+    };
+    NavbarComponent.prototype._changeState = function (user) {
+        if (user === void 0) { user = null; }
+        if (user) {
+            this.isAuth = true;
+            this.authColor = 'primary';
+            this.user = this._getUserInfo(user);
+            console.log('user state changed: ' + this.isAuth);
+        }
+        else {
+            this.isAuth = false;
+            this.authColor = 'warn';
+            this.user = {};
+            console.log('user state changed: ' + this.isAuth);
+        }
+    };
+    NavbarComponent.prototype._getUserInfo = function (user) {
+        if (!user) {
+            return {};
+        }
+        var data = user.auth.providerData[0];
+        return {
+            name: data.displayName,
+            avatar: data.photoURL,
+            email: data.email,
+            provider: data.providerId
+        };
+    };
+    NavbarComponent.prototype._getProvider = function (from) {
+        switch (from) {
+            case 'twitter':
+                return angularfire2_1.AuthProviders.Twitter;
+            case 'facebook':
+                return angularfire2_1.AuthProviders.Facebook;
+            case 'github':
+                return angularfire2_1.AuthProviders.Github;
+            case 'google':
+                return angularfire2_1.AuthProviders.Google;
+        }
     };
     NavbarComponent.prototype.getTitle = function () {
         var titlee = window.location.pathname;
@@ -33,10 +85,10 @@ var NavbarComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'navbar-cmp',
-            providers: [auth_service_1.Auth],
+            providers: [],
             templateUrl: 'navbar.component.html'
         }), 
-        __metadata('design:paramtypes', [auth_service_1.Auth])
+        __metadata('design:paramtypes', [angularfire2_1.AngularFire])
     ], NavbarComponent);
     return NavbarComponent;
 }());

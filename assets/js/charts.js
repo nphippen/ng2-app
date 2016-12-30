@@ -85,7 +85,7 @@ if ('undefined' !== typeof module) {
         Chartist.Pie('#chartPreferences', dataPreferences, optionsPreferences);
 
         Chartist.Pie('#chartPreferences', {
-            labels: ['62%','32%','6%'],
+            labels: ['52%','32%','16%'],
             series: [62, 32, 6]
         });
 
