@@ -69,8 +69,8 @@
                         </a>
                     </li>
                     <li>
-                        <button class="btn btn-primary btn-margin" (click)="login()" *ngIf="isAuth">Log In</button>
-                        <button class="btn btn-primary btn-margin" (click)="logout()" *ngIf="!isAuth">Log Out</button>
+                        <button class="btn btn-primary btn-margin" (click)="login()" *ngIf="isAuth == fasle">Log In</button>
+                        <button class="btn btn-primary btn-margin" (click)="logout()" *ngIf="isAuth == true">Log Out</button>
                     </li>
                     <li class="separator hidden-lg hidden-md"></li>
                 </ul>
